@@ -25,7 +25,10 @@ const loadNews = async (id) => {
 
 
 const displayNews = newsAll => {
-    console.log(newsAll);
+    // console.log(newsAll);
+
+    //start spinner
+    toggleSpinner(true);
 
     const newsConatiner = document.getElementById('news-container');
     newsConatiner.textContent = '';
@@ -33,6 +36,8 @@ const displayNews = newsAll => {
     const itemContainer = document.getElementById('item');
     itemContainer.textContent = '';
 
+
+    /* item found part */
     if (newsAll.length === 0) {
         itemContainer.innerHTML = `
         <div class="card-body text-danger text-center">
@@ -41,11 +46,16 @@ const displayNews = newsAll => {
         `;
         return;
     }
-    itemContainer.innerHTML = `
+    else {
+        itemContainer.innerHTML = `
         <div class="card-body text-danger text-center ">
                     ${newsAll.length} News Found
         </div>
         `;
+    }
+
+
+
 
     newsAll.forEach(news => {
         // console.log(news);
@@ -95,6 +105,8 @@ const displayNews = newsAll => {
         newsConatiner.appendChild(newsDiv);
 
     })
+    //stop spinner
+    toggleSpinner(false);
 }
 
 const newsDetails = async id => {
@@ -142,6 +154,14 @@ const displayNewsDetails = news => {
     modalImg.appendChild(div);
 }
 
-
+const toggleSpinner = isLoading => {
+    const spinnerSection = document.getElementById('spinner');
+    if (isLoading) {
+        spinnerSection.classList.remove('d-none');
+    }
+    else {
+        spinnerSection.classList.add('d-none');
+    }
+}
 
 loadCategory();
