@@ -13,7 +13,7 @@ try {
         datas.forEach(data => {
             // console.log(data.category_id);
             const p = document.createElement('p');
-            p.innerHTML = `<button onclick="loadNews('${data.category_id}')" class="btn btn-outline-none text-primary">${data.category_name}</button>`;
+            p.innerHTML = `<button onclick="loadNews('${data.category_id}')" class="btn btn-sm btn-outline-primary" type="button">${data.category_name}</button>`;
             cat.appendChild(p);
 
         })
