@@ -44,13 +44,13 @@ const displayNews = newsAll => {
                         <div class="d-flex gap-2 ">
                             <img class="rounded-circle" src="${news.author.img}" alt="" width="35" height="35">
 
-                            <p class="card-text"><small class="text-muted fs-6">${news.author.name}</small>
+                            <p class="card-text"><small class="text-muted fs-6">${news.author.name ? news.author.name : 'No Name Available'}</small>
                             </p>
                         </div>
 
                         <div class="d-flex gap-2">
                             <i class="fa-solid fa-user"></i>
-                            <p>${news.total_view}</p>
+                            <p>${news.total_view ? news.total_view : 'No View'}</p>
                         </div>
 
                         <div class="d-flex gap-2">
@@ -61,8 +61,8 @@ const displayNews = newsAll => {
                             <i class="fa-regular fa-star"></i>
                         </div>
                         <div>
-                            <button onclick="newsDetails('${news._id}')" class="btn btn-outline-none text-primary"><i
-                                    class="fa-solid fa-arrow-right"></i></button>
+                            <button onclick="newsDetails('${news._id}')" class="btn btn-outline-none text-primary" data-bs-toggle="modal" data-bs-target="#newsDetailModal"><i
+                                    class="fa-solid fa-arrow-right" ></i></button>
                         </div>
                     </div>
 
@@ -85,8 +85,41 @@ const newsDetails = async id => {
 
 }
 
-const displayNewsDetails = data => {
+const displayNewsDetails = news => {
+    // console.log(news);
+    const modalTitle = document.getElementById('newsDetailModalLabel');
+    modalTitle.innerText = news.title;
 
+    const modalImg = document.getElementById('news-details');
+    modalImg.textContent = '';
+    const div = document.createElement('div');
+    div.innerHTML = `
+    <img class="modal-img img-fluid" src="${news.image_url}" alt="">
+    <p class="card-text m-3">${news.details}</p>
+    <div class="d-flex justify-content-between mt-5">
+                        <div class="d-flex gap-2 ">
+                            <img class="rounded-circle" src="${news.author.img}" alt="" width="35" height="35">
+
+                            <p class="card-text"><small class="text-muted fs-6">${news.author.name ? news.author.name : 'No Name Available'}</small>
+                            </p>
+                        </div>
+
+                        <div class="d-flex gap-2">
+                            <i class="fa-solid fa-user"></i>
+                            <p>${news.total_view ? news.total_view : 'No View'}</p>
+                        </div>
+
+                        <div class="d-flex gap-2">
+                            <i class="fa-regular fa-star-half-stroke"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+     </div>
+    
+    `;
+    modalImg.appendChild(div);
 }
 
 
