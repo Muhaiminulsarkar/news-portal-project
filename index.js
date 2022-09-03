@@ -23,11 +23,12 @@ const loadNews = async (id) => {
     displayNews(data.data);
 }
 
+
 const displayNews = newsAll => {
     const newsConatiner = document.getElementById('news-container');
     newsConatiner.textContent = '';
     newsAll.forEach(news => {
-        console.log(news);
+        // console.log(news);
         const newsDiv = document.createElement('div');
         newsDiv.innerHTML = `
         <div class="card mb-3 px-4" style="max-width: 80rem;">
@@ -60,7 +61,7 @@ const displayNews = newsAll => {
                             <i class="fa-regular fa-star"></i>
                         </div>
                         <div>
-                            <button class="btn btn-outline-none text-primary"><i
+                            <button onclick="newsDetails('${news._id}')" class="btn btn-outline-none text-primary"><i
                                     class="fa-solid fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -70,9 +71,24 @@ const displayNews = newsAll => {
         </div>
     </div>  
         `;
+        // console.log(news._id);
         newsConatiner.appendChild(newsDiv);
 
     })
 }
+
+const newsDetails = async id => {
+    const url = `https://openapi.programming-hero.com/api/news/${id}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    displayNewsDetails(data.data[0]);
+
+}
+
+const displayNewsDetails = data => {
+
+}
+
+
 
 loadCategory();
