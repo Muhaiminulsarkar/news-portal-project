@@ -15,7 +15,6 @@ try {
             const p = document.createElement('p');
             p.innerHTML = `<button onclick="loadNews('${data.category_id}')" class="btn btn-sm btn-outline-primary" type="button">${data.category_name}</button>`;
             cat.appendChild(p);
-
         })
 
     }
@@ -60,13 +59,11 @@ const displayNews = (value, newsAll) => {
     sortView(value);
     console.log(value);
 
-
     const newsConatiner = document.getElementById('news-container');
     newsConatiner.textContent = '';
 
     const itemContainer = document.getElementById('item');
     itemContainer.textContent = '';
-
 
     //stop spinner
     toggleSpinner(false);
@@ -87,7 +84,6 @@ const displayNews = (value, newsAll) => {
         </div>
         `;
     }
-
 
     value.forEach(news => {
         // console.log(news);
@@ -115,13 +111,6 @@ const displayNews = (value, newsAll) => {
                             <p>${news.total_view ? news.total_view : 'No View'}</p>
                         </div>
 
-                        <div class="d-flex gap-2">
-                            <i class="fa-regular fa-star-half-stroke"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
                         <div>
                             <button onclick="newsDetails('${news._id}')" class="btn btn-outline-none text-primary" data-bs-toggle="modal" data-bs-target="#newsDetailModal"><i
                                     class="fa-solid fa-arrow-right" ></i></button>
