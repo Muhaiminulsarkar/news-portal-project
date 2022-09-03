@@ -25,8 +25,28 @@ const loadNews = async (id) => {
 
 
 const displayNews = newsAll => {
+    console.log(newsAll);
+
     const newsConatiner = document.getElementById('news-container');
     newsConatiner.textContent = '';
+
+    const itemContainer = document.getElementById('item');
+    itemContainer.textContent = '';
+
+    if (newsAll.length === 0) {
+        itemContainer.innerHTML = `
+        <div class="card-body text-danger text-center">
+                    ${newsAll.length} News Found
+        </div>
+        `;
+        return;
+    }
+    itemContainer.innerHTML = `
+        <div class="card-body text-danger text-center ">
+                    ${newsAll.length} News Found
+        </div>
+        `;
+
     newsAll.forEach(news => {
         // console.log(news);
         const newsDiv = document.createElement('div');
