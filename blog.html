@@ -62,38 +62,73 @@
         <h1 class="fw-bold text-center text-bg-primary text-white p-2 mb-5">Blogs</h1>
     </section>
     <section class="container">
-        <div class="card-group gap-5">
+        <div class="card gap-5 bg-light">
             <div class="card border-primary">
                 <div class="card-body">
-                    <h5 class="card-title text-center">Card title</h5>
-                    <p class="card-text mt-4">This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
+                    <h5 class="card-title text-center fw-bold fs-4">What is the difference between Var, Let, Const?</h5>
+                    <p class="card-text mt-4"><span class="fs-5 fw-bold">VAR : </span>Var creates a variable that is
+                        function-scoped and can be reassigned at any time. If a var variable is declared outside of a
+                        function, it is part of the global scope and will be a property on the global object.</p>
+                    <p class="card-text mt-4"><span class="fs-5 fw-bold">LET : </span>A variable declared with let can
+                        be reassigned at any time. let is block scoped, which means it is only available within the
+                        function.</p>
+                    <p class="card-text mt-4"><span class="fs-5 fw-bold">CONST : </span>const is used for constant
+                        values. Hence, they cannot be reassigned. They are block scoped, just like let.</p>
                 </div>
                 <div class="card-footer border-primary">
-                    <small class="text-muted">Last updated 3 mins ago</small>
+                    <small class="text-muted">Example: var language = "javascript";<br>
+                        language = "JavaScript is the world's most popular programming language"; // New Value Assigned
+                        <br>
+                        console.log(language); <br>
+                        <br>
+                        function LanguageExample() { <br>
+                        let likes = 500; <br>
+                        console.log(likes); //Output:- 500 <br>
+                        }
+                        console.log(likes);<br>
+                        <br>
+                        const language = "javascript"; <br>
+                        language = "JavaScript is the world's most popular programming language";
+                    </small>
+
+
+
                 </div>
             </div>
-            <div class="card">
-
+            <div class="card border-primary">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.
-                    </p>
+                    <h5 class="card-title text-center fw-bold fs-4">Difference between Arrow Function and Regular
+                        Function</h5>
+                    <p class="card-text mt-4"><span class="fs-5 fw-bold">1. Syntax: </span>One very basic difference is
+                        that the Regular Functions uses function keyword but Arrow Functions don't inspite it uses arrow
+                        symbol(=>).</p>
+                    <p class="card-text mt-4"><span class="fs-5 fw-bold">2. this keyword : </span>Regular function have
+                        its their own this context, but the Arrow function don't have their own. Inside an Arrow
+                        function this value hold the this value of outer function.</p>
+                    <p class="card-text mt-4"><span class="fs-5 fw-bold">3. Using new keyword : </span>Regular function
+                        are constructible and callable.As it are constructible, they can be called using the 'new'
+                        keyword. But the arrow functions are only callable and not constructible. Due to which we will
+                        get a run-time error when trying to construct a non-constructible arrow functions using the new
+                        keyword.</p>
                 </div>
-                <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                </div>
-            </div>
-            <div class="card">
+                <div class="card-footer border-primary">
+                    <small class="text-muted">Example: var language = "javascript";<br>
+                        language = "JavaScript is the world's most popular programming language"; // New Value Assigned
+                        <br>
+                        console.log(language); <br>
+                        <br>
+                        function LanguageExample() { <br>
+                        let likes = 500; <br>
+                        console.log(likes); //Output:- 500 <br>
+                        }
+                        console.log(likes);<br>
+                        <br>
+                        const language = "javascript"; <br>
+                        language = "JavaScript is the world's most popular programming language";
+                    </small>
 
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This card has even longer content than the first to show that equal height
-                        action.</p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
+
+
                 </div>
             </div>
         </div>
