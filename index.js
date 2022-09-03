@@ -1,4 +1,3 @@
-
 try {
     const loadCategory = async () => {
         const url = `https://openapi.programming-hero.com/api/news/categories`
@@ -16,19 +15,14 @@ try {
             p.innerHTML = `<button onclick="loadNews('${data.category_id}')" class="btn btn-sm btn-outline-primary" type="button">${data.category_name}</button>`;
             cat.appendChild(p);
         })
-
     }
 
     loadCategory();
-
 }
 
 catch (err) {
     console.log(err);
 }
-
-
-
 
 
 const loadNews = async (id) => {
@@ -55,7 +49,6 @@ const sortView = (value) => {
 
 const displayNews = (value, newsAll) => {
     // console.log(newsAll);
-
     sortView(value);
     console.log(value);
 
@@ -122,13 +115,9 @@ const displayNews = (value, newsAll) => {
         </div>
     </div>  
         `;
-
         // console.log(news._id);
         newsConatiner.appendChild(newsDiv);
-
     })
-
-
 }
 
 const newsDetails = async id => {
@@ -136,8 +125,6 @@ const newsDetails = async id => {
     const res = await fetch(url);
     const data = await res.json();
     displayNewsDetails(data.data[0]);
-
-
 }
 
 const displayNewsDetails = news => {
